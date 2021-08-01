@@ -35,7 +35,6 @@ class Login(View):
         else:
             error_message = 'Email or Password invalid !!'
 
-        print(email, password)
         return render(request, 'login.html', {'error': error_message})
 
 def logout(request):

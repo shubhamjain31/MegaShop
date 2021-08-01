@@ -8,4 +8,5 @@ venv/
 
 # Python Decouple
 .env
-App/templatetags/
+
+media/

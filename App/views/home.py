@@ -1,4 +1,5 @@
 from django.shortcuts import render ,redirect ,HttpResponseRedirect
+
 from App.models.product import Product
 from App.models.category import Category
 from django.views import View
@@ -31,11 +32,11 @@ class Index(View):
             cart[product] = 1
 
         request.session['cart'] = cart
-        print('cart' , request.session['cart'])
         
         return redirect('homepage')
 
     def get(self , request):
+        print(request.get_full_path()[1:])
         return HttpResponseRedirect(f'/store{request.get_full_path()[1:]}')
 
 def store(request):
@@ -59,5 +60,4 @@ def store(request):
     data['products'] = products
     data['categories'] = categories
 
-    print('you are : ', request.session.get('email'))
     return render(request, 'index.html', data)
