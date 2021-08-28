@@ -49,8 +49,27 @@
    </div>
 </div>
 
+{% endblock %}
 
+{% block js %}
+<script>
+orderComplete = function () {
+        $.ajax({
+            type: "POST",
+            url: '/order/complete/',
+            success: function (response) {
+                if(response.saved != false){
+                    window.location.replace("http://127.0.0.1:8000/order/complete/");
+                }
+                else{
 
+                }
+            }
+        });
+}
+// orderComplete(); 
 
+setTimeout(orderComplete, 5000);
 
+</script>
 {% endblock %}

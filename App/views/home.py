@@ -61,6 +61,3 @@ def store(request):
     data['categories'] = categories
 
     return render(request, 'index.html', data)
-
-def order_complete(request):
-    return render(request, 'order_complete.html')
